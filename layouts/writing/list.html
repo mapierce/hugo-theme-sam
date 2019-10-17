@@ -1,0 +1,21 @@
+{{ define "section_content" }}
+<div class="section" id="content">
+    {{ .Content }}
+    <ul class="writing-list">
+        {{ range .Data.Pages }}
+        <li class="writing-item">
+            <a href="{{.Permalink}}" class="writing-title">
+                {{.Title}}
+            </a>
+            {{ if .Params.showDate }}
+            <p class="date"> {{ .Date.Format (.Site.Params.dateForm | default "Mon Jan 02, 2006")}}</p>
+            {{ end }}
+            <p>{{ .Render "summary" }}</p>
+            <a href="{{.Permalink}}" class="read-more-link">
+                <button class="read-more-button">Read More</button>
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
