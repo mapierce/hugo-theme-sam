@@ -9,9 +9,12 @@
             {{ .Date.Format (.Site.Params.dateForm | default "Mon Jan 02, 2006")}} --
 
             {{ end }}
-            <a href="{{.Permalink}}">
+            <a href="{{.Permalink}}" class="project-title">
                 {{.Title}}
             </a>
+            {{ if .Params.Summary }}
+            -- <p>{{ .Summary }}</p>
+            {{ end }}
         </li>
         {{ end }}
     </ul>

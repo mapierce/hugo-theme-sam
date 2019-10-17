@@ -9,6 +9,7 @@
             </a>
             {{ if .Params.showDate }}
             <p class="date"> {{ .Date.Format (.Site.Params.dateForm | default "Mon Jan 02, 2006")}}</p>
+            <hr/>
             {{ end }}
             <p>{{ .Render "summary" }}</p>
             <a href="{{.Permalink}}" class="read-more-link">
